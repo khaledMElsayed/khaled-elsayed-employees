@@ -2,8 +2,6 @@ package com.sirma.employees.service;
 
 import com.sirma.employees.model.Data;
 import com.sirma.employees.model.Result;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,15 +19,12 @@ import java.util.*;
  */
 public class Service {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Service.class);
-
     /**
      * This Method for read file.
      *
      * @return List of data object.
      */
     public static List<Data> readFile() {
-        LOG.debug("Start reading the file.");
         List<Data> dataList = new ArrayList<>();
         try {
             File file = new File(
@@ -50,7 +45,7 @@ public class Service {
                     dataList.add(data);
             }
         } catch (IOException e) {
-            LOG.error("Exception occurred while reading the file: ", e);
+            System.out.println("Exception occurred while reading the file: " + e);
         }
 
         return dataList;
